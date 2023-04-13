@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "nativeTest",
-    "slug": "nativeTest",
+    "slug": "testnative",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rezavar.testnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "33dd5f7d-2d10-46a0-9801-b2ec194b71b0"
+      }
+    },
+    "owner": "rezavar"
   }
 }

@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet, Text, View,} from 'react-native';
+import {NavigationContainer} from "@react-navigation/native";
+import StackNavigator from "./navigator/StackNavigator";
+import {useCallback, useState} from "react";
+import * as SplashScreen from "expo-splash-screen";
+
+
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>test app test</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [appIsReady, setAppIsReady] = useState(true);
+
+    const onLayoutRootView = useCallback(async () => {
+        if (appIsReady)
+            return <>
+                <View>
+                    <Text>test</Text>
+                </View>
+            </>
+    }, [appIsReady]);
+
+
+    return (
+        <>
+            <SafeAreaView style={styles.container}>
+                <StatusBar hidden={true}/>
+                <Text>
+                    اصلی
+                </Text>
+            </SafeAreaView>
+            <NavigationContainer onReady={onLayoutRootView} >
+                <StackNavigator style={styles.container}/>
+            </NavigationContainer>
+
+
+        </>
+
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        backgroundColor: '#fff',
+        color: 'red',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomColor: '#333',
+        borderBottomWidth: 1
+    }
 });
